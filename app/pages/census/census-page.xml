@@ -1,0 +1,34 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <ActionBar title="Census Registration">
+        <ActionItem tap="{{ onLogout }}" ios.position="right" android.position="actionBar">
+            <Label text="Logout" />
+        </ActionItem>
+    </ActionBar>
+
+    <TabView>
+        <TabViewItem title="New Entry">
+            <ScrollView>
+                <StackLayout class="p-4">
+                    <TextField hint="Full Name" text="{{ fullName }}" class="input mb-2" />
+                    <TextField hint="DNI/Identity Number" text="{{ dni }}" class="input mb-2" />
+                    <TextField hint="Phone Number" text="{{ phoneNumber }}" keyboardType="phone" class="input mb-2" />
+                    <TextField hint="Voting Center" text="{{ votingCenter }}" class="input mb-2" isEnabled="false" />
+                    
+                    <Button text="Save Entry" tap="{{ onSaveEntry }}" class="btn btn-primary mt-4" />
+                </StackLayout>
+            </ScrollView>
+        </TabViewItem>
+
+        <TabViewItem title="View Entries">
+            <ListView items="{{ entries }}" class="list-group">
+                <ListView.itemTemplate>
+                    <StackLayout class="list-group-item">
+                        <Label text="{{ fullName }}" class="text-lg font-bold" />
+                        <Label text="{{ 'DNI: ' + dni }}" />
+                        <Label text="{{ 'Phone: ' + phoneNumbers[0] }}" />
+                    </StackLayout>
+                </ListView.itemTemplate>
+            </ListView>
+        </TabViewItem>
+    </TabView>
+</Page>

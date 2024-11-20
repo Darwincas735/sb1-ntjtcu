@@ -1,0 +1,39 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <ActionBar title="Admin Panel">
+        <ActionItem tap="{{ onLogout }}" ios.position="right" android.position="actionBar">
+            <Label text="Logout" />
+        </ActionItem>
+    </ActionBar>
+
+    <TabView>
+        <TabViewItem title="Create User">
+            <ScrollView>
+                <StackLayout class="p-4">
+                    <TextField hint="Username" text="{{ newUser.username }}" class="input mb-2" />
+                    <TextField hint="Password" text="{{ newUser.password }}" secure="true" class="input mb-2" />
+                    <TextField hint="Voting Center" text="{{ newUser.votingCenter }}" class="input mb-2" />
+                    <SegmentedBar selectedIndex="{{ roleIndex }}" class="mb-4">
+                        <SegmentedBar.items>
+                            <SegmentedBarItem title="User" />
+                            <SegmentedBarItem title="Admin" />
+                        </SegmentedBar.items>
+                    </SegmentedBar>
+                    
+                    <Button text="Create User" tap="{{ onCreateUser }}" class="btn btn-primary" />
+                </StackLayout>
+            </ScrollView>
+        </TabViewItem>
+
+        <TabViewItem title="View Users">
+            <ListView items="{{ users }}" class="list-group">
+                <ListView.itemTemplate>
+                    <StackLayout class="list-group-item">
+                        <Label text="{{ username }}" class="text-lg font-bold" />
+                        <Label text="{{ 'Role: ' + role }}" />
+                        <Label text="{{ 'Voting Center: ' + votingCenter }}" />
+                    </StackLayout>
+                </ListView.itemTemplate>
+            </ListView>
+        </TabViewItem>
+    </TabView>
+</Page>

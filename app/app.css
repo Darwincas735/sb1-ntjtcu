@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.action-bar {
+    background-color: #3F51B5;
+    color: white;
+}
+
+.input {
+    padding: 10;
+    margin: 10;
+    background-color: #f0f0f0;
+    border-radius: 5;
+}
+
+.btn-primary {
+    background-color: #3F51B5;
+    color: white;
+    padding: 10;
+    border-radius: 5;
+    margin: 10;
+}
+
+.btn-secondary {
+    background-color: #FF4081;
+    color: white;
+    padding: 10;
+    border-radius: 5;
+    margin: 10;
+}
+
+.list-group-item {
+    padding: 15;
+    border-bottom-width: 1;
+    border-bottom-color: #e0e0e0;
+}
+
+TabView {
+    tab-text-color: #757575;
+    selected-tab-text-color: #3F51B5;
+    android-selected-tab-highlight-color: #3F51B5;
+}
